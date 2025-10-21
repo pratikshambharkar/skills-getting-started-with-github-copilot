@@ -6,7 +6,6 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   max-width: 1200px;
@@ -29,15 +28,17 @@ header h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
-  justify-content: center;
+  justify-items: center;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   main {
     grid-template-columns: 2fr 1fr;
+    justify-items: stretch;
   }
 }
 
@@ -156,12 +157,15 @@ footer {
 }
 
 .participant-list {
-  list-style: disc inside;
+  list-style: none; /* hide default bullets */
   margin: 0;
   padding: 0;
 }
 
 .participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 6px 8px;
   margin: 4px 0;
   background: linear-gradient(90deg, rgba(245,247,255,1) 0%, rgba(255,255,255,1) 100%);
@@ -169,6 +173,21 @@ footer {
   border: 1px solid #f0f2ff;
   font-size: 14px;
   color: #2b2b2b;
+}
+
+.delete-participant {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.delete-participant:hover {
+  background: rgba(198,40,40,0.08);
 }
 
 .no-participants {
